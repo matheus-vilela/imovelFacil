@@ -1,3 +1,4 @@
+const ImageRepository = require('../repositories/image-repository');
 const ImovelRepository = require('../repositories/imovel-repository');
 
 class ImovelController {
@@ -31,6 +32,7 @@ class ImovelController {
       piscina,
       condominio,
       portaria,
+      image,
     } = request.body;
 
     const imovelExists = await ImovelRepository.findByAddress(endereco);
@@ -43,12 +45,19 @@ class ImovelController {
         objetivo,
         endereco,
         detalhes: {
-          valor,
-          area,
+          valor: Number(valor),
+          area: Number(area),
           descricao,
-          garagem,
+          garagem: Number(garagem),
         },
       });
+      if (imovel) {
+        await ImageRepository.create({
+          index: 0,
+          url: image,
+          id_imovel: imovel[0].id_imovel,
+        });
+      }
       response.json(imovel);
     } else if (tipo === 'apartamento') {
       const imovel = await ImovelRepository.create({
@@ -68,7 +77,13 @@ class ImovelController {
           area,
         },
       });
-
+      if (imovel) {
+        await ImageRepository.create({
+          index: 0,
+          url: image,
+          id_imovel: imovel[0].id_imovel,
+        });
+      }
       response.json(imovel);
     } else {
       const imovel = await ImovelRepository.create({
@@ -86,7 +101,13 @@ class ImovelController {
           area,
         },
       });
-
+      if (imovel) {
+        await ImageRepository.create({
+          index: 0,
+          url: image,
+          id_imovel: imovel[0].id_imovel,
+        });
+      }
       response.json(imovel);
     }
   }
@@ -121,6 +142,7 @@ class ImovelController {
     if (!imovelExists) {
       return response.status(404).json({ error: 'Imovel not found' });
     }
+    await ImageRepository.delete(id);
     await ImovelRepository.delete(id);
     response.sendStatus(204);
   }

@@ -5,6 +5,7 @@ const ClienteController = require('./app/controllers/cliente-controller');
 const ContratoController = require('./app/controllers/contrato-controller');
 const FiadorController = require('./app/controllers/fiador-controller');
 const EnderecoController = require('./app/controllers/endereco-controller');
+const ImageController = require('./app/controllers/image-controller');
 
 const router = Router();
 
@@ -31,6 +32,12 @@ router.post('/fiador', FiadorController.store);
 router.get('/fiador/:id', FiadorController.show);
 router.put('/fiador/:id', FiadorController.update);
 router.delete('/fiador/:id', FiadorController.delete);
+
+router.get('/image', ImageController.index);
+router.post('/image', ImageController.store);
+router.get('/image/:id', ImageController.show);
+router.put('/image/:id', ImageController.update);
+router.delete('/image/:id', ImageController.delete);
 
 router.get('/endereco', EnderecoController.index);
 router.get('/endereco/:id', EnderecoController.show);

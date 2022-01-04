@@ -21,6 +21,7 @@ CREATE TABLE IF NOT EXISTS endereco (
 CREATE TABLE IF NOT EXISTS images (
   id UUID NOT NULL UNIQUE DEFAULT uuid_generate_v4(),
   id_imovel UUID,
+  index INT NOT NULL,
   url VARCHAR NOT NULL,
   FOREIGN KEY(id_imovel) REFERENCES imovel(id)
 );
@@ -87,6 +88,7 @@ CREATE TABLE IF NOT EXISTS fiador (
   email VARCHAR(50) NOT NULL,
   salario FLOAT NOT NULL,
   endereco UUID,
+  FOREIGN KEY(endereco) REFERENCES endereco(id)
   PRIMARY KEY (id)
 );
 
