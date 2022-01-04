@@ -185,7 +185,6 @@ function Cadastro() {
           <Button onPress={() => setShow('imovel')} style={{ borderColor: show === 'imovel' ? theme.colors.primary : theme.colors.black }}><Info>Cadastrar Imóvel</Info></Button>
           <Button onPress={() => setShow('cliente')} style={{ borderColor: show === 'cliente' ? theme.colors.primary : theme.colors.black }}><Info>Cadastrar Cliente</Info></Button>
           <Button onPress={() => setShow('fiador')} style={{ borderColor: show === 'fiador' ? theme.colors.primary : theme.colors.black }}><Info>Cadastrar Fiador</Info></Button>
-          <Button onPress={() => setShow('contrato')} style={{ borderColor: show === 'contrato' ? theme.colors.primary : theme.colors.black }}><Info>Cadastrar Contrato</Info></Button>
         </Row>
         <Diviser />
         {show === 'imovel' && (
