@@ -54,7 +54,7 @@ $ expo start
 ```
 ---
 
-<h4 align="center"> <em>&lt;/&gt;</em> by <a href="https://github.com/vilelagit" target="_blank">Gustavo Estevam and Matheus Vilela</a> ✌</h4>
+<h4 align="center"> <em>&lt;/&gt;</em> by <a href="https://github.com/vilelagit" target="_blank">Matheus Vilela</a> ✌</h4>
 
 [nodejs]: https://nodejs.org/
 [expo]: https://docs.expo.io/
